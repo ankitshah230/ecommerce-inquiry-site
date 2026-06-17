@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure Earth - Handmade, natural, organic soaps.">
+    <title>Pure Earth | Natural Handmade Soaps</title>
+	
+	<meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<!-- Favicon Icon : 256x256 px-->
+	<!--
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	-->
+	
+	<!-- Place Google Analytics code Here -->
+	
+	
+	<!-- Add OG tags -->
+	<!--
+	<meta property="og:title" content="My Page Title">
+    <meta property="og:description" content="A short description of the page">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <meta property="og:url" content="https://example.com/page">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="My Website">
+	-->
+	
+	<!-- Local Business Schema -->
+	<!--
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "LocalBusiness",
+	  "name": "My Store",
+	  "address": {
+		"@type": "PostalAddress",
+		"streetAddress": "123 Main St",
+		"addressLocality": "Vadodara",
+		"addressRegion": "Gujarat",
+		"postalCode": "390001",
+		"addressCountry": "IN"
+	  },
+	  "telephone": "+91-9876543210"
+	}
+	</script>
+	-->
+	
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+	<!-- Splide CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --color-primary: #4A6741;
+            --color-primary-dark: #354C2E;
+            --color-secondary: #D4A373;
+            --color-bg: #F9F7F2;
+            --color-white: #FFFFFF;
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --color-border: #E0E0E0;
+            --color-whatsapp: #25D366;
+            --color-success: #27ae60;
+            --container-width: 1200px;
+            --section-padding: 80px 0;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --sidebar-width: 400px;
+			--color-error: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 90px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Utilities */
+        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; padding: 0 15px; }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 0.85rem;
+            text-align: center;
+            pointer-events: auto; /* Ensure buttons stay clickable */
+        }
+        .btn-primary { background-color: var(--color-primary); color: var(--color-white); }
+        .btn-primary:hover { background-color: var(--color-primary-dark); transform: translateY(-2px); }
+        
+        /* Success State for Button */
+        .btn-success { background-color: var(--color-success); color: var(--color-white); border-color: var(--color-success); }
+
+        .btn-secondary { background-color: transparent; border-color: var(--color-primary); color: var(--color-primary); }
+        .btn-secondary:hover { background-color: var(--color-primary); color: var(--color-white); }
+        .btn-whatsapp { background-color: var(--color-whatsapp); color: white; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-whatsapp:hover { background-color: #1ebc57; }
+        .btn-danger { background-color: #e74c3c; color: white; width: 100%; margin-top: 10px; font-size: 0.8rem; padding: 8px; }
+        .btn-danger:hover { background-color: #c0392b; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-header p { color: var(--color-text-light); max-width: 600px; margin: 0 auto; }
+
+        /* Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background-color: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--color-primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; font-size: 1rem; position: relative; }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background-color: var(--color-secondary); transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .nav-icons { display: flex; align-items: center; gap: 20px; }
+        .cart-icon { position: relative; cursor: pointer; color: var(--color-primary); font-size: 1.2rem; }
+        .cart-count {
+            position: absolute; top: -8px; right: -8px; background-color: var(--color-secondary);
+            color: var(--color-white); font-size: 0.7rem; width: 18px; height: 18px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--color-primary); }
+
+        /* =========================================
+           HERO SECTION (SLIDER)
+           ========================================= */
+        .hero {
+            position: relative; height: 100vh; min-height: 600px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .slider-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center;
+        }
+        .slide.active { opacity: 1; }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); }
+        .hero-content {
+            position: relative; z-index: 2; text-align: center; color: var(--color-white);
+            max-width: 800px; padding: 20px;
+        }
+        .hero-content h1 { color: var(--color-white); font-size: 3.5rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; }
+        .hero-buttons .btn-secondary { border-color: var(--color-white); color: var(--color-white); }
+        .hero-buttons .btn-secondary:hover { background-color: var(--color-white); color: var(--color-primary); }
+        
+        .slider-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%); color: var(--color-white);
+            font-size: 2rem; cursor: pointer; z-index: 10; background: rgba(0,0,0,0.1);
+            width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+        .slider-arrow:hover { background: rgba(0,0,0,0.3); }
+        .prev-arrow { left: 20px; }
+        .next-arrow { right: 20px; }
+        .slider-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; }
+        .dot.active { background: var(--color-white); transform: scale(1.2); }
+
+        /* =========================================
+           BENEFITS SECTION
+           ========================================= */
+        .benefits { padding: var(--section-padding); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .benefit-card {
+            background: var(--color-white); padding: 40px 30px; border-radius: var(--border-radius);
+            text-align: center; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid transparent;
+        }
+        .benefit-card:hover { transform: translateY(-10px); border-color: var(--color-secondary); }
+        .benefit-icon { font-size: 2.5rem; color: var(--color-secondary); margin-bottom: 20px; }
+        .benefit-card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+
+        /* =========================================
+           PRODUCT SHOWCASE
+           ========================================= */
+        .products { padding: var(--section-padding); background-color: #fff; }
+        .product-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px;
+        }
+        .product-card {
+            background: var(--color-bg); border-radius: var(--border-radius); overflow: hidden;
+            transition: var(--transition); position: relative; border: 1px solid #eee;
+        }
+        .product-card:hover { box-shadow: var(--shadow); }
+        .product-image { height: 300px; overflow: hidden; position: relative; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .product-card:hover .product-image img { transform: scale(1.05); }
+        
+        .eye-icon {
+            position: absolute; top: 15px; right: 15px; width: 40px; height: 40px;
+            background: rgba(255,255,255,0.8); border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; color: var(--color-primary);
+            cursor: pointer; transition: var(--transition); opacity: 0; z-index: 2;
+        }
+        .product-card:hover .eye-icon { opacity: 1; }
+        .eye-icon:hover { background: var(--color-primary); color: var(--color-white); }
+
+        .product-details { padding: 25px; text-align: center; }
+        .product-category { color: var(--color-secondary); font-size: 0.85rem; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: block; }
+        .product-title { font-size: 1.4rem; margin-bottom: 10px; color: var(--color-primary); }
+        .product-price { font-size: 1.2rem; font-weight: 700; color: var(--color-text); margin-bottom: 20px; display: block; }
+
+        /* Grid Actions */
+        .product-actions-grid {
+            display: flex; gap: 10px; justify-content: center; align-items: center;
+            margin-top: 10px;
+        }
+        .grid-qty-input {
+            width: 60px; padding: 8px; text-align: center; border: 1px solid #ddd; border-radius: 4px;
+        }
+        .btn-add-grid {
+            padding: 8px 20px; font-size: 0.8rem;
+        }
+		
+		/* =========================================
+           SPLIDE PRODUCT SECTIONS
+           ========================================= */
+        .splide-products { padding: var(--section-padding); }
+        .splide-products:nth-of-type(even) { background-color: #fff; }
+
+        .splide-products .product-card {
+            background: var(--color-bg); border-radius: var(--border-radius); overflow: hidden;
+            transition: var(--transition); border: 1px solid #eee; height: 100%;
+        }
+        .splide-products .product-card:hover { box-shadow: var(--shadow); transform: translateY(-5px); }
+        .splide-products .product-image { height: 220px; overflow: hidden; position: relative; }
+        .splide-products .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .splide-products .product-card:hover .product-image img { transform: scale(1.05); }
+        .splide-products .eye-icon {
+            position: absolute; top: 10px; right: 10px; width: 35px; height: 35px;
+            background: rgba(255,255,255,0.85); border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; color: var(--color-primary);
+            cursor: pointer; transition: var(--transition); opacity: 0; z-index: 2; font-size: 0.85rem;
+        }
+        .splide-products .product-card:hover .eye-icon { opacity: 1; }
+        .splide-products .eye-icon:hover { background: var(--color-primary); color: var(--color-white); }
+        .splide-products .product-details { padding: 18px; text-align: center; }
+        .splide-products .product-title { font-size: 1.1rem; margin-bottom: 6px; color: var(--color-primary); }
+        .splide-products .product-price { font-size: 1.05rem; font-weight: 700; color: var(--color-text); margin-bottom: 12px; display: block; }
+        .splide-products .btn-add-grid { padding: 7px 16px; font-size: 0.75rem; }
+        .splide-products .grid-qty-input { width: 50px; padding: 6px; font-size: 0.85rem; }
+        .splide-products .product-actions-grid { gap: 8px; margin-top: 8px; }
+
+        /* Splide custom arrows */
+        .splide-products .splide__arrow {
+            background: var(--color-primary); opacity: 1; width: 40px; height: 40px;
+        }
+        .splide-products .splide__arrow svg { fill: white; width: 18px; }
+        .splide-products .splide__arrow:hover { background: var(--color-primary-dark); }
+        .splide-products .splide__pagination__page { background: var(--color-border); }
+        .splide-products .splide__pagination__page.is-active { background: var(--color-primary); transform: scale(1.3); }
+
+        /* =========================================
+           PRODUCT MODAL
+           ========================================= */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 2000; display: none;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--color-white); padding: 30px; border-radius: var(--border-radius);
+            max-width: 800px; width: 100%; display: flex; gap: 30px; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #999; }
+        .modal-image { flex: 1; min-height: 300px; }
+        .modal-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .modal-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .modal-info h3 { font-size: 2rem; margin-bottom: 10px; }
+        .modal-price { font-size: 1.5rem; color: var(--color-secondary); font-weight: 700; margin-bottom: 20px; }
+        .modal-desc { margin-bottom: 30px; color: var(--color-text-light); }
+        .modal-actions { display: flex; flex-direction: column; gap: 15px; }
+        .qty-wrapper { display: flex; align-items: center; gap: 10px; }
+        .qty-input { padding: 10px; width: 80px; border: 1px solid #ddd; border-radius: 6px; text-align: center; }
+
+        /* =========================================
+           TESTIMONIALS (SPLIDE)
+           ========================================= */
+        .testimonials { padding: var(--section-padding); background: var(--color-primary); color: var(--color-white); text-align: center; }
+        .testimonials .section-header h2, .testimonials .section-header p { color: var(--color-white); }
+        .testimonial-splide-wrapper {
+            position: relative; max-width: 800px; margin: 0 auto;
+        }
+        .testimonial-card {
+            padding: 20px 40px;
+        }
+        .stars { color: #FFD700; margin-bottom: 15px; font-size: 1.2rem; }
+        .testimonial-text { font-size: 1.2rem; font-style: italic; margin-bottom: 30px; line-height: 1.8; }
+        .client-name { font-weight: 700; font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+
+        /* Testimonial Splide arrow overrides */
+        .testimonials .splide__arrow {
+            background: rgba(255,255,255,0.2); opacity: 1; width: 40px; height: 40px;
+        }
+        .testimonials .splide__arrow svg { fill: white; width: 16px; }
+        .testimonials .splide__arrow:hover { background: rgba(255,255,255,0.4); }
+        .testimonials .splide__pagination { bottom: -20px; }
+        .testimonials .splide__pagination__page { background: rgba(255,255,255,0.35); width: 10px; height: 10px; }
+        .testimonials .splide__pagination__page.is-active { background: #fff; transform: scale(1.3); }
+
+        /* =========================================
+           PROCESS & WHY CHOOSE
+           ========================================= */
+        .why-choose { padding: var(--section-padding); background-color: #f1efe9; }
+        .comparison-wrapper { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .comparison-content { flex: 1; min-width: 300px; }
+        .comparison-image { flex: 1; min-width: 300px; }
+        .comparison-image img { border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .feature-row { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
+        .check-icon { color: var(--color-success); font-size: 1.2rem; margin-top: 4px; }
+
+        .process { padding: var(--section-padding); }
+        .steps-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; position: relative; }
+        .step-card { flex: 1; min-width: 200px; text-align: center; position: relative; z-index: 2; }
+        .step-number {
+            width: 80px; height: 80px; background: var(--color-white); border: 2px solid var(--color-secondary);
+            color: var(--color-secondary); border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .step-card:hover .step-number { background: var(--color-secondary); color: var(--color-white); }
+
+        /* =========================================
+           OFFER & FAQ
+           ========================================= */
+        .offer { padding: 80px 0; background: linear-gradient(rgba(74, 103, 65, 0.9), rgba(74, 103, 65, 0.9)), url('https://picsum.photos/seed/soapbg/1920/600'); background-size: cover; text-align: center; color: var(--color-white); }
+        .offer h2 { color: var(--color-white); font-size: 3rem; margin-bottom: 10px; }
+        .discount-tag { font-size: 1.5rem; color: var(--color-secondary); font-weight: 700; margin-bottom: 20px; display: block; }
+        .countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .time-box { background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 8px; backdrop-filter: blur(5px); }
+        .time-val { font-size: 2rem; font-weight: 700; display: block; }
+
+        .faq { padding: var(--section-padding); background-color: var(--color-white); }
+        .accordion { max-width: 800px; margin: 0 auto; }
+        .accordion-item { border-bottom: 1px solid var(--color-border); margin-bottom: 10px; }
+        .accordion-header {
+            width: 100%; padding: 20px; background: none; border: none; text-align: left;
+            font-size: 1.1rem; font-weight: 600; color: var(--color-primary); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .accordion-header i { transition: transform 0.3s; }
+        .accordion-header.active i { transform: rotate(180deg); }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 20px; }
+        .accordion-body p { padding-bottom: 20px; color: var(--color-text-light); }
+
+        /* =========================================
+           CONTACT SECTION (WITH HONEYPOT)
+           ========================================= */
+        .contact { padding: var(--section-padding); background-color: #f9f7f2; }
+        .contact-container { display: flex; flex-wrap: wrap; gap: 50px; }
+        .contact-info, .contact-form-wrapper { flex: 1; min-width: 300px; }
+        .info-item { display: flex; align-items: center; margin-bottom: 30px; }
+        .info-icon { width: 50px; height: 50px; background: var(--color-white); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--color-primary); font-size: 1.2rem; margin-right: 20px; box-shadow: var(--shadow); }
+        
+        .form-group { margin-bottom: 20px; position: relative; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: var(--color-primary); }
+        .error-msg { color: var(--color-error); font-size: 0.8rem; margin-top: 5px; display: none; }
+        .form-group.error .form-control { border-color: var(--color-error); }
+        .form-group.error .error-msg { display: block; }
+
+        /* =========================================
+           NEWSLETTER SECTION (NEW)
+           ========================================= */
+        .newsletter-section { padding: 60px 0; background: #f1f1f1; text-align: center; }
+        .newsletter-section .section-header { margin-bottom: 30px; }
+        .embed-container {
+            width: 90%; max-width: 600px; margin: 0 auto; min-height: 400px;
+            background: white; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
+            color: #999; font-style: italic;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer { background-color: #2b2b2b; color: #ccc; padding: 70px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col h4 { color: var(--color-white); margin-bottom: 25px; font-size: 1.2rem; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--color-secondary); padding-left: 5px; transition: var(--transition); }
+        .newsletter-form { display: flex; }
+        .newsletter-form input { padding: 12px; width: 100%; border: none; border-radius: 4px 0 0 4px; outline: none; }
+        .newsletter-form button { padding: 12px 20px; background: var(--color-secondary); color: var(--color-white); border: none; border-radius: 0 4px 4px 0; cursor: pointer; transition: var(--transition); }
+        .newsletter-form button:hover { background: #c09160; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; justify-content: center; align-items: center; border-radius: 50%; transition: var(--transition); }
+        .social-links a:hover { background: var(--color-secondary); color: var(--color-white); }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.9rem; }
+
+        /* =========================================
+           CART SIDEBAR
+           ========================================= */
+        .cart-sidebar {
+            position: fixed; top: 0; right: -100%; width: var(--sidebar-width); height: 100%;
+            background: var(--color-white); z-index: 3000; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.4s ease; display: flex; flex-direction: column;
+        }
+        .cart-sidebar.active { right: 0; }
+        .cart-header {
+            padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;
+        }
+        .cart-header h3 { font-size: 1.5rem; }
+        .close-cart { font-size: 1.5rem; cursor: pointer; color: #999; }
+        .cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+        .cart-item { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #f5f5f5; padding-bottom: 15px; }
+        .cart-item img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cart-item-details { flex: 1; }
+        .cart-item-title { font-weight: 700; font-size: 0.9rem; }
+        .cart-item-price { color: var(--color-text-light); font-size: 0.9rem; }
+        .cart-controls { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+        .cart-qty { width: 40px; padding: 4px; text-align: center; border: 1px solid #ddd; border-radius: 4px; }
+        .remove-item { color: var(--color-error); cursor: pointer; font-size: 0.8rem; }
+        
+        .cart-footer { padding: 20px; border-top: 1px solid #eee; background: #fafafa; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        .shipping-note { font-size: 0.8rem; color: #e67e22; margin-bottom: 20px; min-height: 1.2em; }
+        .whatsapp-order-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .overlay-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2900; display: none; }
+        .overlay-bg.active { display: block; }
+
+        /* =========================================
+           STICKY BOTTOM CART SUMMARY
+           ========================================= */
+        .sticky-cart {
+            position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: var(--container-width); 
+            background: var(--color-primary);
+            color: white; padding: 15px 30px; z-index: 2500;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); border-radius: 50px;
+        }
+        .sticky-cart-info { font-weight: 700; }
+        .sticky-cart-btn button { padding: 8px 20px; font-size: 0.9rem; }
+
+        /* =========================================
+           BACK TO TOP BUTTON
+           ========================================= */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--color-secondary);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        #backToTop:hover { background-color: #bfa07a; transform: translateY(-3px); }
+		
+		/* =========================================
+           TOAST NOTIFICATION
+           ========================================= */
+        .toast {
+            position: fixed; bottom: 110px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--color-primary); color: white; padding: 12px 28px; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600; z-index: 5000; opacity: 0;
+            transition: all 0.4s ease; pointer-events: none; white-space: nowrap;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 80px; right: -100%; width: 70%; height: calc(100vh - 80px); background: var(--color-white); flex-direction: column; padding: 40px; transition: 0.4s ease; }
+            .nav-links.active { right: 0; }
+            .hamburger { display: block; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .modal-content { flex-direction: column; }
+            .modal-image { height: 200px; }
+            .cart-sidebar { width: 100%; }
+            .sticky-cart { width: 95%; padding: 10px 20px; flex-direction: column; gap: 5px; text-align: center; }
+            #backToTop { bottom: 140px; }
+            .testimonials .splide__arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-leaf"></i> Pure Earth
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                    <li><a href="#products" class="nav-link">Shop</a></li>
+                    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <div class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="slider-container" id="heroSlider">
+            <div class="slide active" style="background-image: url('https://picsum.photos/seed/soap1/1920/1080');"></div>
+            <div class="slide" style="background-image: url('https://picsum.photos/seed/nature2/1920/1080');"></div>
+            <div class="slide" style="background-image: url('https://picsum.photos/seed/spa3/1920/1080');"></div>
+        </div>
+        <div class="slider-arrow prev-arrow" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
+        <div class="slider-arrow next-arrow" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
+        <div class="slider-dots" id="sliderDots"></div>
+        <div class="hero-content reveal">
+            <h1>Nature's Touch in Every Bar</h1>
+            <p>Handcrafted with organic ingredients, essential oils, and love for your skin.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#process" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Why Go Natural?</h2>
+                <p>Discover the benefits of switching to chemical-free skincare.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>100% Organic</h3>
+                    <p>Sourced directly from nature, free from pesticides.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Handmade</h3>
+                    <p>Crafted in small batches to ensure premium quality.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-ban"></i></div>
+                    <h3>Cruelty Free</h3>
+                    <p>None of our products or ingredients are tested on animals.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-allergies"></i></div>
+                    <h3>Paraben Free</h3>
+                    <p>Zero harmful preservatives. Just pure ingredients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Featured Collection</h2>
+                <p>Our best sellers, loved by hundreds of happy customers.</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_lavender/600/600" alt="Lavender Bliss">
+                        <div class="eye-icon" onclick="openModal('Lavender Bliss', 8.50, 'Calming lavender essential oils with dried buds for gentle exfoliation.', 'https://picsum.photos/seed/soap_lavender/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Relaxing</span>
+                        <h3 class="product-title">Lavender Bliss</h3>
+                        <span class="product-price">$8.50</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-1">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-1" onclick="addFromGrid(1, 'Lavender Bliss', 8.50, 'https://picsum.photos/seed/soap_lavender/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_oats/600/600" alt="Honey & Oat">
+                        <div class="eye-icon" onclick="openModal('Honey & Oat', 9.00, 'Soothing oats and raw honey to nourish dry and sensitive skin.', 'https://picsum.photos/seed/soap_oats/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Moisturizing</span>
+                        <h3 class="product-title">Honey & Oat</h3>
+                        <span class="product-price">$9.00</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-2">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-2" onclick="addFromGrid(2, 'Honey & Oat', 9.00, 'https://picsum.photos/seed/soap_oats/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_charcoal/600/600" alt="Charcoal Detox">
+                        <div class="eye-icon" onclick="openModal('Charcoal Detox', 9.50, 'Activated bamboo charcoal to draw out impurities.', 'https://picsum.photos/seed/soap_charcoal/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Detoxifying</span>
+                        <h3 class="product-title">Charcoal Detox</h3>
+                        <span class="product-price">$9.50</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-3">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-3" onclick="addFromGrid(3, 'Charcoal Detox', 9.50, 'https://picsum.photos/seed/soap_charcoal/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_mint/600/600" alt="Peppermint Burst">
+                        <div class="eye-icon" onclick="openModal('Peppermint Burst', 8.50, 'Cooling peppermint and tea tree oil.', 'https://picsum.photos/seed/soap_mint/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Energizing</span>
+                        <h3 class="product-title">Peppermint Burst</h3>
+                        <span class="product-price">$8.50</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-4">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-4" onclick="addFromGrid(4, 'Peppermint Burst', 8.50, 'https://picsum.photos/seed/soap_mint/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_rose/600/600" alt="Rose Garden">
+                        <div class="eye-icon" onclick="openModal('Rose Garden', 10.00, 'Infused with real rose petals and rose water.', 'https://picsum.photos/seed/soap_rose/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Luxury</span>
+                        <h3 class="product-title">Rose Garden</h3>
+                        <span class="product-price">$10.00</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-5">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-5" onclick="addFromGrid(5, 'Rose Garden', 10.00, 'https://picsum.photos/seed/soap_rose/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://picsum.photos/seed/soap_coconut/600/600" alt="Coconut Milk">
+                        <div class="eye-icon" onclick="openModal('Coconut Milk', 9.50, 'Creamy coconut milk soap for soft skin.', 'https://picsum.photos/seed/soap_coconut/600/600')">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Hydrating</span>
+                        <h3 class="product-title">Coconut Milk</h3>
+                        <span class="product-price">$9.50</span>
+                        <div class="product-actions-grid">
+                            <input type="number" class="grid-qty-input" value="1" min="1" id="grid-qty-6">
+                            <button class="btn btn-primary btn-add-grid" id="btn-grid-6" onclick="addFromGrid(6, 'Coconut Milk', 9.50, 'https://picsum.photos/seed/soap_coconut/600/600')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<!-- ========== NEW: Herbal Shampoo Section ========== -->
+    <section class="splide-products" id="shampoo-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2><i class="fas fa-leaf" style="color:var(--color-secondary);margin-right:8px;"></i>Herbal Shampoo</h2>
+                <p>Nature-powered hair care — cleanse, nourish, and revitalize with botanical extracts.</p>
+            </div>
+            <div class="splide" id="shampoo-splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_aloe/400/400" alt="Aloe Vera Shine">
+                                    <div class="eye-icon" onclick="openModal('Aloe Vera Shine Shampoo', 12.99, 'Aloe-enriched formula for silky, shiny hair without residue.', 'https://picsum.photos/seed/shampoo_aloe/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Shine</span>
+                                    <h3 class="product-title">Aloe Vera Shine</h3>
+                                    <span class="product-price">$12.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-1">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-1','Aloe Vera Shine Shampoo',12.99,'https://picsum.photos/seed/shampoo_aloe/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_neem/400/400" alt="Neem & Tea Tree">
+                                    <div class="eye-icon" onclick="openModal('Neem & Tea Tree Cleanser', 11.99, 'Anti-dandruff formula with neem and tea tree oils.', 'https://picsum.photos/seed/shampoo_neem/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Anti-Dandruff</span>
+                                    <h3 class="product-title">Neem & Tea Tree</h3>
+                                    <span class="product-price">$11.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-2">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-2','Neem & Tea Tree Cleanser',11.99,'https://picsum.photos/seed/shampoo_neem/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_hibiscus/400/400" alt="Hibiscus Revival">
+                                    <div class="eye-icon" onclick="openModal('Hibiscus Hair Revival', 13.99, 'Hibiscus extracts to reduce hair fall and boost volume.', 'https://picsum.photos/seed/shampoo_hibiscus/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Volume</span>
+                                    <h3 class="product-title">Hibiscus Revival</h3>
+                                    <span class="product-price">$13.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-3">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-3','Hibiscus Hair Revival',13.99,'https://picsum.photos/seed/shampoo_hibiscus/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_argan/400/400" alt="Argan Nourish">
+                                    <div class="eye-icon" onclick="openModal('Argan & Coconut Nourish', 14.99, 'Deep conditioning with argan oil and coconut milk.', 'https://picsum.photos/seed/shampoo_argan/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Nourishing</span>
+                                    <h3 class="product-title">Argan Nourish</h3>
+                                    <span class="product-price">$14.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-4">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-4','Argan & Coconut Nourish',14.99,'https://picsum.photos/seed/shampoo_argan/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_bhringraj/400/400" alt="Bhringraj Boost">
+                                    <div class="eye-icon" onclick="openModal('Bhringraj Growth Boost', 12.99, 'Traditional Ayurvedic herb for thicker, stronger hair.', 'https://picsum.photos/seed/shampoo_bhringraj/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Growth</span>
+                                    <h3 class="product-title">Bhringraj Boost</h3>
+                                    <span class="product-price">$12.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-5">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-5','Bhringraj Growth Boost',12.99,'https://picsum.photos/seed/shampoo_bhringraj/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_onion/400/400" alt="Onion & Black Seed">
+                                    <div class="eye-icon" onclick="openModal('Onion & Black Seed Strength', 13.49, 'Strengthens roots and reduces breakage naturally.', 'https://picsum.photos/seed/shampoo_onion/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Strength</span>
+                                    <h3 class="product-title">Onion & Black Seed</h3>
+                                    <span class="product-price">$13.49</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-6">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-6','Onion & Black Seed Strength',13.49,'https://picsum.photos/seed/shampoo_onion/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_greentea/400/400" alt="Green Tea Fresh">
+                                    <div class="eye-icon" onclick="openModal('Green Tea Fresh Wash', 10.99, 'Lightweight cleansing with antioxidant green tea.', 'https://picsum.photos/seed/shampoo_greentea/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Fresh</span>
+                                    <h3 class="product-title">Green Tea Fresh</h3>
+                                    <span class="product-price">$10.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-7">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-7','Green Tea Fresh Wash',10.99,'https://picsum.photos/seed/shampoo_greentea/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/shampoo_amla/400/400" alt="Amla & Shikakai">
+                                    <div class="eye-icon" onclick="openModal('Amla & Shikakai Traditional', 11.49, 'Classic Indian hair care combo for naturally dark, lustrous hair.', 'https://picsum.photos/seed/shampoo_amla/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Traditional</span>
+                                    <h3 class="product-title">Amla & Shikakai</h3>
+                                    <span class="product-price">$11.49</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="sq-qty-8">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('sq-8','Amla & Shikakai Traditional',11.49,'https://picsum.photos/seed/shampoo_amla/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEW: Face Cream Section ========== -->
+    <section class="splide-products" id="cream-section" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2><i class="fas fa-spa" style="color:var(--color-secondary);margin-right:8px;"></i>Face Cream</h2>
+                <p>Luxurious creams crafted with botanicals for radiant, healthy-looking skin.</p>
+            </div>
+            <div class="splide" id="cream-splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_turmeric/400/400" alt="Turmeric Glow">
+                                    <div class="eye-icon" onclick="openModal('Turmeric Glow Cream', 18.99, 'Brightening turmeric cream for an even, radiant complexion.', 'https://picsum.photos/seed/cream_turmeric/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Brightening</span>
+                                    <h3 class="product-title">Turmeric Glow</h3>
+                                    <span class="product-price">$18.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-1">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-1','Turmeric Glow Cream',18.99,'https://picsum.photos/seed/cream_turmeric/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_saffron/400/400" alt="Saffron & Sandalwood">
+                                    <div class="eye-icon" onclick="openModal('Saffron & Sandalwood Bright', 22.99, 'Premium saffron and sandalwood for luminous skin.', 'https://picsum.photos/seed/cream_saffron/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Premium</span>
+                                    <h3 class="product-title">Saffron & Sandalwood</h3>
+                                    <span class="product-price">$22.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-2">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-2','Saffron & Sandalwood Bright',22.99,'https://picsum.photos/seed/cream_saffron/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_aloe/400/400" alt="Aloe Vera Hydra">
+                                    <div class="eye-icon" onclick="openModal('Aloe Vera Hydra Gel', 16.99, 'Lightweight aloe gel cream for deep, oil-free hydration.', 'https://picsum.photos/seed/cream_aloe/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Hydrating</span>
+                                    <h3 class="product-title">Aloe Vera Hydra</h3>
+                                    <span class="product-price">$16.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-3">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-3','Aloe Vera Hydra Gel',16.99,'https://picsum.photos/seed/cream_aloe/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_rose/400/400" alt="Rose Petal Night">
+                                    <div class="eye-icon" onclick="openModal('Rose Petal Night Cream', 20.99, 'Rich overnight repair with real rose petal extract.', 'https://picsum.photos/seed/cream_rose/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Night Care</span>
+                                    <h3 class="product-title">Rose Petal Night</h3>
+                                    <span class="product-price">$20.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-4">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-4','Rose Petal Night Cream',20.99,'https://picsum.photos/seed/cream_rose/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_vitc/400/400" alt="Vitamin C Radiance">
+                                    <div class="eye-icon" onclick="openModal('Vitamin C Radiance Cream', 19.99, 'Vitamin C infused cream for brighter, firmer skin.', 'https://picsum.photos/seed/cream_vitc/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Anti-Aging</span>
+                                    <h3 class="product-title">Vitamin C Radiance</h3>
+                                    <span class="product-price">$19.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-5">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-5','Vitamin C Radiance Cream',19.99,'https://picsum.photos/seed/cream_vitc/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/cream_charcoal/400/400" alt="Charcoal Mattifying">
+                                    <div class="eye-icon" onclick="openModal('Charcoal Mattifying Cream', 17.99, 'Oil-control charcoal cream for a shine-free, smooth finish.', 'https://picsum.photos/seed/cream_charcoal/400/400')"><i class="far fa-eye"></i></div>
+                                </div>
+                                <div class="product-details">
+                                    <span class="product-category">Oil Control</span>
+                                    <h3 class="product-title">Charcoal Mattifying</h3>
+                                    <span class="product-price">$17.99</span>
+                                    <div class="product-actions-grid">
+                                        <input type="number" class="grid-qty-input" value="1" min="1" id="cq-qty-6">
+                                        <button class="btn btn-primary btn-add-grid" onclick="addFromGrid('cq-6','Charcoal Mattifying Cream',17.99,'https://picsum.photos/seed/cream_charcoal/400/400')">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="Product">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle">Product Title</h3>
+                <div class="modal-price" id="modalPrice">$0.00</div>
+                <p class="modal-desc" id="modalDesc">Description goes here.</p>
+                <div class="modal-actions">
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" id="modalQty" class="qty-input" value="1" min="1">
+                    </div>
+                    <button class="btn btn-primary" id="modalAddBtn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose reveal">
+        <div class="container">
+            <div class="comparison-wrapper">
+                <div class="comparison-content">
+                    <h2>Pure Earth vs. Commercial Soaps</h2>
+                    <p style="margin-bottom: 30px;">Most store-bought soaps are actually detergents. We keep the good stuff in.</p>
+                    <div class="feature-row">
+                        <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="feature-text"><h4>Glycerin Retained</h4><p class="text-light">Commercial soap removes glycerin to sell separately. We keep it for hydration.</p></div>
+                    </div>
+                    <div class="feature-row">
+                        <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="feature-text"><h4>No Synthetic Fragrances</h4><p class="text-light">We only use pure essential oils for therapeutic benefits.</p></div>
+                    </div>
+                </div>
+                <div class="comparison-image">
+                    <img src="https://picsum.photos/seed/ingredients/600/500" alt="Natural Ingredients">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Soap Making Process</h2>
+                <p>How we turn simple ingredients into skin-loving bars.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <h4>Mixing</h4>
+                    <p>Blending oils and lye.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">2</div>
+                    <h4>Blending</h4>
+                    <p>Adding scents and colors.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">3</div>
+                    <h4>Pouring</h4>
+                    <p>Hand-pouring into molds.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">4</div>
+                    <h4>Curing</h4>
+                    <p>Air drying for 6 weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (SPLIDE) -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Happy Customers</h2>
+                <p>See what people are saying about Pure Earth soaps.</p>
+            </div>
+            <div class="testimonial-splide-wrapper">
+                <div class="splide" id="testimonial-splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="testimonial-card">
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                    <p class="testimonial-text">"I've struggled with eczema for years, and switching to Pure Earth's oat soap has made a world of difference. My skin feels amazing!"</p>
+                                    <div class="client-name">- Sarah Jenkins</div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="testimonial-card">
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                    <p class="testimonial-text">"The Lavender Bliss smells like a real spa. It doesn't dry out my skin like store brands. Highly recommend!"</p>
+                                    <div class="client-name">- Michael Chen</div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="testimonial-card">
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                    <p class="testimonial-text">"Beautiful packaging and even better product. I bought these as gifts and kept two for myself."</p>
+                                    <div class="client-name">- Emma Wilson</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer -->
+    <section class="offer">
+        <div class="container">
+            <h2>Weekend Special</h2>
+            <span class="discount-tag">Get 20% OFF All Tea Tree Soaps</span>
+            <div class="countdown" id="countdown">
+                <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span></div>
+                <div class="time-box"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span></div>
+                <div class="time-box"><span class="time-val" id="minutes">00</span><span class="time-label">Mins</span></div>
+                <div class="time-box"><span class="time-val" id="seconds">00</span><span class="time-label">Secs</span></div>
+            </div>
+            <a href="#products" class="btn btn-primary" style="background: white; color: var(--color-primary);">Claim Offer</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+		<div class="container">
+			<div class="section-header reveal">
+				<h2>Frequently Asked Questions</h2>
+			</div>
+
+			<div class="accordion">
+
+				<!-- Question 1 -->
+				<div class="accordion-item"
+					 itemscope
+					 itemprop="mainEntity"
+					 itemtype="https://schema.org/Question">
+
+					<button class="accordion-header">
+						<span itemprop="name">How long does the soap last?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+
+					<div class="accordion-body"
+						 itemscope
+						 itemprop="acceptedAnswer"
+						 itemtype="https://schema.org/Answer">
+						<div itemprop="text">
+							<p>With proper draining, a bar can last 4-6 weeks.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Question 2 -->
+				<div class="accordion-item"
+					 itemscope
+					 itemprop="mainEntity"
+					 itemtype="https://schema.org/Question">
+
+					<button class="accordion-header">
+						<span itemprop="name">Are these safe for sensitive skin?</span>
+						<i class="fas fa-chevron-down"></i>
+					</button>
+
+					<div class="accordion-body"
+						 itemscope
+						 itemprop="acceptedAnswer"
+						 itemtype="https://schema.org/Answer">
+						<div itemprop="text">
+							<p>Yes, absolutely. We use no harsh detergents or sulfates.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+    <!-- Contact Section (With Honeypot) -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Get In Touch</h2>
+                <p>Have questions about wholesale or custom orders? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info reveal">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Artisan Way, Craftsville, CA 90210</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>hello@pureearthsoap.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper reveal">
+                    <form id="contactForm" novalidate>
+                        <!-- Honeypot Field -->
+                        <input type="text" name="b_check" style="display:none;" tabindex="-1" autocomplete="off">
+                        
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name">
+                            <div class="error-msg">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email">
+                            <div class="error-msg">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" class="form-control" placeholder="How can we help?"></textarea>
+                            <div class="error-msg">Please enter your message</div>
+                        </div>
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products and upcoming sales.</p>
+            </div>
+            
+            <!-- 
+                LIST OF FREE EXTERNAL SUBSCRIBE FORM EMBEDDERS:
+                1. Mailchimp: https://mailchimp.com/help/add-a-signup-form-to-your-website/
+                2. Google Forms: Create form -> Share -> Embed HTML
+                3. Formspree: https://formspree.io/ (Simple static form handling)
+                4. Typeform: https://www.typeform.com/help/articles/40236413-embedding-typeform-on-your-website/
+                5. Substack: https://substack.com/guide/newsletter-embed
+            -->
+
+            <div class="embed-container">
+                <!-- Replace the content below with your iframe or embed code -->
+                <i class="fas fa-envelope-open-text" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                <p>Newsletter Embed Form Placeholder</p>
+                <small style="font-style: normal;">(e.g. Mailchimp, Google Forms iframe)</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: #fff;">
+                        <i class="fas fa-leaf"></i> Pure Earth
+                    </div>
+                    <p>Natural skincare handmade with love. Dedicated to sustainability and your well-being.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Shop</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="margin-bottom: 15px;">Subscribe for latest updates and 10% off your first order.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright" id="copyrightYear">
+                &copy; 2023 Pure Earth Soaps. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back To Top -->
+    <button onclick="topFunction()" id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+	
+	<!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- CART SIDEBAR -->
+    <div class="overlay-bg" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="close-cart" id="closeCart"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Items injected via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalDisplay">$0.00</span>
+            </div>
+            <!-- Shipping Note -->
+            <div id="shippingNote" class="shipping-note"></div>
+            
+            <button class="btn btn-whatsapp whatsapp-order-btn" onclick="orderViaWhatsapp()">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </button>
+            <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+
+    <!-- STICKY BOTTOM CART SUMMARY -->
+    <div class="sticky-cart" id="stickyCart">
+        <div class="sticky-cart-info" id="stickySummary">
+            Total: 0 Items | $0.00
+        </div>
+        <div class="sticky-cart-btn">
+            <button class="btn btn-primary" style="background: white; color: var(--color-primary);" onclick="openCart()">View Cart</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+	<!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+	
+    <script>
+        // =========================================
+        // 1. CONFIGURABLE VARIABLES
+        // =========================================
+        const appConfig = {
+            whatsappNumber: "1234567890", // REPLACE WITH YOUR NUMBER
+            priceIncludingShipping: false, // Set to true for free shipping, false for extra charges
+            currency: "$",
+            
+            // Feedback Timings (in milliseconds)
+            gridFeedbackTime: 3000, // Grid button resets after 3s
+            modalFeedbackTime: 5000, // Modal button resets after 5s (and closes modal)
+
+            // Offer Timer Configuration
+            // Format: "YYYY-MM-DDTHH:mm:ss" (ISO 8601). Leave empty for default (Starts Now, Ends 2 Days)
+            offerStartDate: "", 
+            offerEndDate: "",
+            timezone: "UTC" // e.g., "UTC", "America/New_York"
+        };
+
+        // =========================================
+        // 2. DATA & STATE
+        // =========================================
+        let cart = [];
+        let currentModalProduct = {};
+        let countdownInterval;
+
+        // =========================================
+        // 3. LOCAL STORAGE HELPERS
+        // =========================================
+        function saveCart() {
+            localStorage.setItem('shopCart', JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const storedCart = localStorage.getItem('shopCart');
+            if (storedCart) {
+                try {
+                    cart = JSON.parse(storedCart);
+                    updateCartUI();
+                } catch (e) {
+                    console.error("Error parsing cart", e);
+                    cart = [];
+                }
+            }
+        }
+
+        // =========================================
+        // 4. MODAL LOGIC
+        // =========================================
+        const modal = document.getElementById('productModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalQty = document.getElementById('modalQty');
+        const modalAddBtn = document.getElementById('modalAddBtn');
+
+        function openModal(title, price, desc, img) {
+            currentModalProduct = { title, price, desc, img };
+            modalTitle.innerText = title;
+            modalPrice.innerText = appConfig.currency + price.toFixed(2);
+            modalDesc.innerText = desc;
+            modalImg.src = img;
+            modalQty.value = 1;
+            
+            // Reset button state just in case
+            resetButton(modalAddBtn);
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // =========================================
+        // 5. BUTTON FEEDBACK UX
+        // =========================================
+        function handleButtonFeedback(btn, isModal = false, callback = null) {
+            const originalContent = btn.innerHTML;
+            const originalClass = btn.className;
+            
+            // Show Success State
+            btn.innerHTML = '<i class="fas fa-check"></i> Added';
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-success');
+            btn.disabled = true; // Prevent double clicks
+
+            const time = isModal ? appConfig.modalFeedbackTime : appConfig.gridFeedbackTime;
+
+            setTimeout(() => {
+                // Revert State
+                btn.innerHTML = originalContent;
+                btn.className = originalClass;
+                btn.disabled = false;
+
+                // If modal, close it after feedback
+                if (isModal) {
+                    closeModal();
+                }
+
+                if (callback) callback();
+
+            }, time);
+        }
+
+        function resetButton(btn) {
+            btn.disabled = false;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-primary');
+            btn.innerHTML = 'Add to Cart';
+        }
+
+        function addFromModal() {
+            const qty = parseInt(modalQty.value);
+            if (qty > 0) {
+                addToCart(currentModalProduct.title, currentModalProduct.price, currentModalProduct.img, qty);
+                handleButtonFeedback(modalAddBtn, true);
+            }
+        }
+
+        modalAddBtn.onclick = addFromModal;
+
+        // =========================================
+        // 6. CART LOGIC
+        // =========================================
+        function addToCart(title, price, img, qty = 1) {
+            const existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.qty += qty;
+            } else {
+                cart.push({ title, price, img, qty });
+            }
+            updateCartUI();
+            saveCart();
+        }
+
+        function removeFromCart(title) {
+            cart = cart.filter(item => item.title !== title);
+            updateCartUI();
+            saveCart();
+        }
+
+        function clearCart() {
+            if(confirm("Are you sure you want to clear your cart?")) {
+                cart = [];
+                updateCartUI();
+                saveCart();
+            }
+        }
+
+        function updateItemQty(title, change) {
+            const item = cart.find(item => item.title === title);
+            if (item) {
+                item.qty += change;
+                if (item.qty < 1) item.qty = 1;
+                updateCartUI();
+                saveCart();
+            }
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const totalDisplay = document.getElementById('cartTotalDisplay');
+            const countDisplay = document.getElementById('cartCount');
+            const stickySummary = document.getElementById('stickySummary');
+            const shippingNote = document.getElementById('shippingNote');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let totalCount = 0;
+
+            if (!appConfig.priceIncludingShipping) {
+                shippingNote.innerText = "* Shipping charge will be extra. Will be decided on order confirmation.";
+            } else {
+                shippingNote.innerText = "Enjoy free shipping on this order!";
+            }
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999; margin-top: 50px;">Your cart is empty.</p>';
+            } else {
+                cart.forEach(item => {
+                    total += item.price * item.qty;
+                    totalCount += item.qty;
+                    
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
+                        <img src="${item.img}" alt="${item.title}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">${appConfig.currency}${item.price.toFixed(2)}</div>
+                            <div class="cart-controls">
+                                <button onclick="updateItemQty('${item.title}', -1)" style="background:none; border:none; cursor:pointer;">-</button>
+                                <input type="text" class="cart-qty" value="${item.qty}" readonly>
+                                <button onclick="updateItemQty('${item.title}', 1)" style="background:none; border:none; cursor:pointer;">+</button>
+                                <span class="remove-item" onclick="removeFromCart('${item.title}')"><i class="fas fa-trash-alt"></i> Remove</span>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(itemEl);
+                });
+            }
+
+            totalDisplay.innerText = appConfig.currency + total.toFixed(2);
+            countDisplay.innerText = totalCount;
+            stickySummary.innerText = `Total: ${totalCount} Items | ${appConfig.currency}${total.toFixed(2)}`;
+        }
+
+        function openCart() {
+            document.getElementById('cartSidebar').classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.remove('active');
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        document.getElementById('cartIcon').addEventListener('click', openCart);
+        document.getElementById('closeCart').addEventListener('click', closeCart);
+        document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+        // =========================================
+        // 7. GRID ADD TO CART LOGIC
+        // =========================================
+        function addFromGrid(id, title, price, img) {
+            const btn = document.getElementById(`btn-grid-${id}`);
+            const qtyInput = document.getElementById(`grid-qty-${id}`);
+            const qty = parseInt(qtyInput.value);
+            
+            if (qty > 0) {
+                addToCart(title, price, img, qty);
+                qtyInput.value = 1; // Reset input
+                handleButtonFeedback(btn, false);
+            }
+        }
+
+        // =========================================
+        // 8. WHATSAPP ORDER LOGIC
+        // =========================================
+        function orderViaWhatsapp() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let message = "Hello, I would like to place an order:%0A%0A";
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                message += `- ${item.title} (x${item.qty}): ${appConfig.currency}${itemTotal.toFixed(2)}%0A`;
+            });
+
+            message += `%0A*Total Items Price: ${appConfig.currency}${total.toFixed(2)}*`;
+
+            if (!appConfig.priceIncludingShipping) {
+                message += "%0A%0ANote: Shipping charges will be calculated on order confirmation.";
+            } else {
+                message += "%0A%0ANote: Shipping is free!";
+            }
+
+            const url = `https://wa.me/${appConfig.whatsappNumber}?text=${message}`;
+            window.open(url, '_blank');
+        }
+
+        // Contact Form WhatsApp (With Honeypot Check)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Honeypot Check
+            const honeypot = this.querySelector('input[name="b_check"]');
+            if(honeypot && honeypot.value !== "") {
+                console.log("Spam detected");
+                return; // Silent fail for bots
+            }
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value; 
+            const msg = document.getElementById('message').value;
+            
+            const text = `Hello, my name is ${name}.%0AEmail: ${email}%0A%0A${msg}`;
+            const url = `https://wa.me/${appConfig.whatsappNumber}?text=${text}`;
+            window.open(url, '_blank');
+        });
+
+        // =========================================
+        // 9. OFFER TIMER LOGIC (UPDATED)
+        // =========================================
+        function initOfferTimer() {
+            let targetDate;
+
+            if (appConfig.offerStartDate && appConfig.offerEndDate) {
+                // If dates are provided, use End Date as target
+                targetDate = new Date(appConfig.offerEndDate).getTime();
+                // Optional: Check if current time is before start date (don't show timer yet)
+            } else {
+                // Default: 2 days from now
+                targetDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000);
+            }
+
+            if (countdownInterval) clearInterval(countdownInterval);
+
+            countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerHTML = "<h3>Offer Expired</h3>";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            }, 1000);
+        }
+
+        // =========================================
+        // 11. HERO SLIDER & GENERAL UI
+        // =========================================
+        const slides = document.querySelectorAll('#heroSlider .slide');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentSlide = 0;
+
+        function initHeroSlider() {
+            if (slides.length <= 1) return;
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            setInterval(nextSlide, 5000);
+        }
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dotsContainer.children[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dotsContainer.children[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() { goToSlide(currentSlide + 1); }
+        function prevSlide() { goToSlide(currentSlide - 1); }
+
+        document.getElementById('nextSlide').addEventListener('click', nextSlide);
+        document.getElementById('prevSlide').addEventListener('click', prevSlide);
+        
+        initHeroSlider();
+
+        // Accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const body = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.style.maxHeight = null;
+                });
+                if (!isActive) {
+                    header.classList.add('active');
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            else header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            reveals.forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        });
+
+        // Back to Top
+        const backToTopBtn = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // =========================================
+        // 12. INITIALIZATION
+        // =========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCart();
+            initOfferTimer();
+            
+            // Dynamic Year
+            document.getElementById('copyrightYear').innerText = 
+                `© ${new Date().getFullYear()} Pure Earth Soaps. All Rights Reserved.`;
+        });
+		
+		
+		// =========================================
+        // 13. SPLIDE INITIALIZATION
+        // =========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Herbal Shampoo Splide
+            new Splide('#shampoo-splide', {
+                type: 'loop',
+                perPage: 4,
+                perMove: 1,
+                gap: '24px',
+                padding: { left: '0', right: '0' },
+                pagination: true,
+                arrows: true,
+                autoplay: true,
+                interval: 4000,
+                pauseOnHover: true,
+                breakpoints: {
+                    1024: { perPage: 3, gap: '16px' },
+                    768:  { perPage: 2, gap: '12px' },
+                    480:  { perPage: 1, gap: '8px' }
+                }
+            }).mount();
+
+            // Face Cream Splide
+            new Splide('#cream-splide', {
+                type: 'loop',
+                perPage: 4,
+                perMove: 1,
+                gap: '24px',
+                padding: { left: '0', right: '0' },
+                pagination: true,
+                arrows: true,
+                autoplay: true,
+                interval: 4500,
+                pauseOnHover: true,
+                breakpoints: {
+                    1024: { perPage: 3, gap: '16px' },
+                    768:  { perPage: 2, gap: '12px' },
+                    480:  { perPage: 1, gap: '8px' }
+                }
+            }).mount();
+			
+			// Testimonial Splide
+            new Splide('#testimonial-splide', {
+                type: 'loop',
+                perPage: 1,
+                perMove: 1,
+                autoplay: true,
+                interval: 6000,
+                pauseOnHover: true,
+                pagination: true,
+                arrows: true,
+                speed: 800,
+                rewind: true
+            }).mount();
+
+        });
+		
+		
+		// =========================================
+        // 14. Protect Content
+        // =========================================
+		// Disable right-click
+		document.addEventListener('contextmenu', function(e) {
+			e.preventDefault();
+		});
+		
+		// Disable copy / cut / paste
+		document.addEventListener('copy', e => e.preventDefault());
+		document.addEventListener('cut', e => e.preventDefault());
+		document.addEventListener('paste', e => e.preventDefault());
+		
+		// Disable text selection
+		document.addEventListener("DOMContentLoaded", function () {
+			const style = document.body.style;
+			style.userSelect = "none";
+			style.webkitUserSelect = "none";
+			style.msUserSelect = "none";
+		});
+		
+		document.addEventListener('selectstart', function(e) {
+			e.preventDefault();
+		});
+		
+		// Block common keyboard shortcuts (Ctrl+U, Ctrl+S, Ctrl+C, F12)
+		document.addEventListener('keydown', function(e) {
+		  if (
+			e.ctrlKey && 
+			['u', 's', 'c', 'a'].includes(e.key.toLowerCase())
+		  ) {
+			e.preventDefault();
+		  }
+
+		  // Block F12
+		  if (e.key === 'F12') {
+			e.preventDefault();
+		  }
+		});
+
+    </script>
+</body>
+</html>
