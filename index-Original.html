@@ -13,8 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<!-- Favicon Icon : 256x256 px-->
-	<!--
+	
 	<link rel="icon" href="img/favicon.ico">
+	<!--
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 	-->
 	
@@ -51,6 +52,10 @@
 	</script>
 	-->
 	
+	<!-- Preload: Hero Section Image -->
+	<link rel="preload" as="image" href="https://picsum.photos/seed/soap1/1920/1080">
+	
+	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
@@ -305,15 +310,17 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7); z-index: 2000; display: none;
             justify-content: center; align-items: center; padding: 20px;
+			z-index: 9999;
         }
         .modal-overlay.active { display: flex; }
         .modal-content {
             background: var(--color-white); padding: 30px; border-radius: var(--border-radius);
             max-width: 800px; width: 100%; display: flex; gap: 30px; position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+			max-height: 80%;
+            overflow: scroll;
         }
         .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #999; }
-        .modal-image { flex: 1; min-height: 300px; }
         .modal-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         .modal-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .modal-info h3 { font-size: 2rem; margin-bottom: 10px; }
@@ -376,7 +383,7 @@
         .offer { padding: 80px 0; background: linear-gradient(rgba(74, 103, 65, 0.9), rgba(74, 103, 65, 0.9)), url('https://picsum.photos/seed/soapbg/1920/600'); background-size: cover; text-align: center; color: var(--color-white); }
         .offer h2 { color: var(--color-white); font-size: 3rem; margin-bottom: 10px; }
         .discount-tag { font-size: 1.5rem; color: var(--color-secondary); font-weight: 700; margin-bottom: 20px; display: block; }
-        .countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap;}
         .time-box { background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 8px; backdrop-filter: blur(5px); }
         .time-val { font-size: 2rem; font-weight: 700; display: block; }
 
@@ -523,7 +530,6 @@
             .hamburger { display: block; }
             .hero-content h1 { font-size: 2.2rem; }
             .modal-content { flex-direction: column; }
-            .modal-image { height: 200px; }
             .cart-sidebar { width: 100%; }
             .sticky-cart { width: 95%; padding: 10px 20px; flex-direction: column; gap: 5px; text-align: center; }
             #backToTop { bottom: 140px; }
@@ -623,7 +629,7 @@
                 <!-- Product 1 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_lavender/600/600" alt="Lavender Bliss">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_lavender/600/600" alt="Lavender Bliss">
                         <div class="eye-icon" onclick="openModal('Lavender Bliss', 8.50, 'Calming lavender essential oils with dried buds for gentle exfoliation.', 'https://picsum.photos/seed/soap_lavender/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -641,7 +647,7 @@
                 <!-- Product 2 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_oats/600/600" alt="Honey & Oat">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_oats/600/600" alt="Honey & Oat">
                         <div class="eye-icon" onclick="openModal('Honey & Oat', 9.00, 'Soothing oats and raw honey to nourish dry and sensitive skin.', 'https://picsum.photos/seed/soap_oats/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -659,7 +665,7 @@
                 <!-- Product 3 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_charcoal/600/600" alt="Charcoal Detox">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_charcoal/600/600" alt="Charcoal Detox">
                         <div class="eye-icon" onclick="openModal('Charcoal Detox', 9.50, 'Activated bamboo charcoal to draw out impurities.', 'https://picsum.photos/seed/soap_charcoal/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -677,7 +683,7 @@
                 <!-- Product 4 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_mint/600/600" alt="Peppermint Burst">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_mint/600/600" alt="Peppermint Burst">
                         <div class="eye-icon" onclick="openModal('Peppermint Burst', 8.50, 'Cooling peppermint and tea tree oil.', 'https://picsum.photos/seed/soap_mint/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -695,7 +701,7 @@
                 <!-- Product 5 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_rose/600/600" alt="Rose Garden">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_rose/600/600" alt="Rose Garden">
                         <div class="eye-icon" onclick="openModal('Rose Garden', 10.00, 'Infused with real rose petals and rose water.', 'https://picsum.photos/seed/soap_rose/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -713,7 +719,7 @@
                 <!-- Product 6 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="https://picsum.photos/seed/soap_coconut/600/600" alt="Coconut Milk">
+                        <img loading="lazy" src="https://picsum.photos/seed/soap_coconut/600/600" alt="Coconut Milk">
                         <div class="eye-icon" onclick="openModal('Coconut Milk', 9.50, 'Creamy coconut milk soap for soft skin.', 'https://picsum.photos/seed/soap_coconut/600/600')">
                             <i class="far fa-eye"></i>
                         </div>
@@ -745,7 +751,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_aloe/400/400" alt="Aloe Vera Shine">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_aloe/400/400" alt="Aloe Vera Shine">
                                     <div class="eye-icon" onclick="openModal('Aloe Vera Shine Shampoo', 12.99, 'Aloe-enriched formula for silky, shiny hair without residue.', 'https://picsum.photos/seed/shampoo_aloe/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -762,7 +768,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_neem/400/400" alt="Neem & Tea Tree">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_neem/400/400" alt="Neem & Tea Tree">
                                     <div class="eye-icon" onclick="openModal('Neem & Tea Tree Cleanser', 11.99, 'Anti-dandruff formula with neem and tea tree oils.', 'https://picsum.photos/seed/shampoo_neem/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -779,7 +785,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_hibiscus/400/400" alt="Hibiscus Revival">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_hibiscus/400/400" alt="Hibiscus Revival">
                                     <div class="eye-icon" onclick="openModal('Hibiscus Hair Revival', 13.99, 'Hibiscus extracts to reduce hair fall and boost volume.', 'https://picsum.photos/seed/shampoo_hibiscus/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -796,7 +802,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_argan/400/400" alt="Argan Nourish">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_argan/400/400" alt="Argan Nourish">
                                     <div class="eye-icon" onclick="openModal('Argan & Coconut Nourish', 14.99, 'Deep conditioning with argan oil and coconut milk.', 'https://picsum.photos/seed/shampoo_argan/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -813,7 +819,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_bhringraj/400/400" alt="Bhringraj Boost">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_bhringraj/400/400" alt="Bhringraj Boost">
                                     <div class="eye-icon" onclick="openModal('Bhringraj Growth Boost', 12.99, 'Traditional Ayurvedic herb for thicker, stronger hair.', 'https://picsum.photos/seed/shampoo_bhringraj/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -830,7 +836,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_onion/400/400" alt="Onion & Black Seed">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_onion/400/400" alt="Onion & Black Seed">
                                     <div class="eye-icon" onclick="openModal('Onion & Black Seed Strength', 13.49, 'Strengthens roots and reduces breakage naturally.', 'https://picsum.photos/seed/shampoo_onion/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -847,7 +853,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_greentea/400/400" alt="Green Tea Fresh">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_greentea/400/400" alt="Green Tea Fresh">
                                     <div class="eye-icon" onclick="openModal('Green Tea Fresh Wash', 10.99, 'Lightweight cleansing with antioxidant green tea.', 'https://picsum.photos/seed/shampoo_greentea/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -864,7 +870,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/shampoo_amla/400/400" alt="Amla & Shikakai">
+                                    <img loading="lazy" src="https://picsum.photos/seed/shampoo_amla/400/400" alt="Amla & Shikakai">
                                     <div class="eye-icon" onclick="openModal('Amla & Shikakai Traditional', 11.49, 'Classic Indian hair care combo for naturally dark, lustrous hair.', 'https://picsum.photos/seed/shampoo_amla/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -897,7 +903,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_turmeric/400/400" alt="Turmeric Glow">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_turmeric/400/400" alt="Turmeric Glow">
                                     <div class="eye-icon" onclick="openModal('Turmeric Glow Cream', 18.99, 'Brightening turmeric cream for an even, radiant complexion.', 'https://picsum.photos/seed/cream_turmeric/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -914,7 +920,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_saffron/400/400" alt="Saffron & Sandalwood">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_saffron/400/400" alt="Saffron & Sandalwood">
                                     <div class="eye-icon" onclick="openModal('Saffron & Sandalwood Bright', 22.99, 'Premium saffron and sandalwood for luminous skin.', 'https://picsum.photos/seed/cream_saffron/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -931,7 +937,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_aloe/400/400" alt="Aloe Vera Hydra">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_aloe/400/400" alt="Aloe Vera Hydra">
                                     <div class="eye-icon" onclick="openModal('Aloe Vera Hydra Gel', 16.99, 'Lightweight aloe gel cream for deep, oil-free hydration.', 'https://picsum.photos/seed/cream_aloe/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -948,7 +954,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_rose/400/400" alt="Rose Petal Night">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_rose/400/400" alt="Rose Petal Night">
                                     <div class="eye-icon" onclick="openModal('Rose Petal Night Cream', 20.99, 'Rich overnight repair with real rose petal extract.', 'https://picsum.photos/seed/cream_rose/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -965,7 +971,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_vitc/400/400" alt="Vitamin C Radiance">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_vitc/400/400" alt="Vitamin C Radiance">
                                     <div class="eye-icon" onclick="openModal('Vitamin C Radiance Cream', 19.99, 'Vitamin C infused cream for brighter, firmer skin.', 'https://picsum.photos/seed/cream_vitc/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -982,7 +988,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/cream_charcoal/400/400" alt="Charcoal Mattifying">
+                                    <img loading="lazy" src="https://picsum.photos/seed/cream_charcoal/400/400" alt="Charcoal Mattifying">
                                     <div class="eye-icon" onclick="openModal('Charcoal Mattifying Cream', 17.99, 'Oil-control charcoal cream for a shine-free, smooth finish.', 'https://picsum.photos/seed/cream_charcoal/400/400')"><i class="far fa-eye"></i></div>
                                 </div>
                                 <div class="product-details">
@@ -1041,7 +1047,7 @@
                     </div>
                 </div>
                 <div class="comparison-image">
-                    <img src="https://picsum.photos/seed/ingredients/600/500" alt="Natural Ingredients">
+                    <img loading="lazy" src="https://picsum.photos/seed/ingredients/600/500" alt="Natural Ingredients">
                 </div>
             </div>
         </div>
@@ -1284,12 +1290,13 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 20px; color: #fff;">
+                <div class="footer-col" style="text-align: center;">
+                    <div class="logo" style="margin-bottom: 20px; color: #fff; justify-content: center;">
                         <i class="fas fa-leaf"></i> Pure Earth
                     </div>
                     <p>Natural skincare handmade with love. Dedicated to sustainability and your well-being.</p>
                 </div>
+				<!--
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
@@ -1316,9 +1323,10 @@
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
+				-->
             </div>
-            <div class="copyright" id="copyrightYear">
-                &copy; 2023 Pure Earth Soaps. All Rights Reserved.
+            <div class="copyright">
+                &copy; <span id="copyrightYear">2023</span> Pure Earth Soaps. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -1373,7 +1381,7 @@
         // 1. CONFIGURABLE VARIABLES
         // =========================================
         const appConfig = {
-            whatsappNumber: "1234567890", // REPLACE WITH YOUR NUMBER
+            whatsappNumber: "+917984463148", // REPLACE WITH YOUR NUMBER
             priceIncludingShipping: false, // Set to true for free shipping, false for extra charges
             currency: "$",
             
@@ -1561,7 +1569,7 @@
                     const itemEl = document.createElement('div');
                     itemEl.className = 'cart-item';
                     itemEl.innerHTML = `
-                        <img src="${item.img}" alt="${item.title}">
+                        <img loading="lazy" src="${item.img}" alt="${item.title}">
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.title}</div>
                             <div class="cart-item-price">${appConfig.currency}${item.price.toFixed(2)}</div>
@@ -1799,7 +1807,7 @@
             
             // Dynamic Year
             document.getElementById('copyrightYear').innerText = 
-                `© ${new Date().getFullYear()} Pure Earth Soaps. All Rights Reserved.`;
+                `${new Date().getFullYear()}`;
         });
 		
 		

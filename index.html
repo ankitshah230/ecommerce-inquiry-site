@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	
 	<!-- Favicon Icon : 256x256 px-->
-	<!--
 	<link rel="icon" href="img/favicon.ico">
+	<!--
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 	-->
 	
@@ -51,6 +51,10 @@
 	</script>
 	-->
 	
+	<!-- Preload: Hero Section Image -->
+	<link rel="preload" as="image" href="img/banner_3.jpg">
+	
+	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
@@ -308,15 +312,17 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7); z-index: 2000; display: none;
             justify-content: center; align-items: center; padding: 20px;
+			z-index: 9999;
         }
         .modal-overlay.active { display: flex; }
         .modal-content {
             background: var(--color-white); padding: 30px; border-radius: var(--border-radius);
             max-width: 800px; width: 100%; display: flex; gap: 30px; position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+			max-height: 80%;
+			overflow: scroll;
         }
         .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #999; }
-        .modal-image { flex: 1; min-height: 300px; }
         .modal-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         .modal-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .modal-info h3 { font-size: 2rem; margin-bottom: 10px; }
@@ -380,7 +386,7 @@
         .offer { padding: 80px 0; background: linear-gradient(rgba(74, 103, 65, 0.9), rgba(74, 103, 65, 0.9)), url('https://picsum.photos/seed/soapbg/1920/600'); background-size: cover; text-align: center; color: var(--color-white); }
         .offer h2 { color: var(--color-white); font-size: 3rem; margin-bottom: 10px; }
         .discount-tag { font-size: 1.5rem; color: var(--color-secondary); font-weight: 700; margin-bottom: 20px; display: block; }
-        .countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
         .time-box { background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 8px; backdrop-filter: blur(5px); }
         .time-val { font-size: 2rem; font-weight: 700; display: block; }
 
@@ -527,7 +533,7 @@
             .hamburger { display: block; }
             .hero-content h1 { font-size: 2.2rem; }
             .modal-content { flex-direction: column; }
-            .modal-image { height: 200px; }
+            
             .cart-sidebar { width: 100%; }
             .sticky-cart { width: 95%; padding: 10px 20px; flex-direction: column; gap: 5px; text-align: center; }
             #backToTop { bottom: 140px; }
@@ -627,7 +633,7 @@
                 <!-- Product 1 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Handcrafted_lavender_soap_bar.jpg" alt="Lavender Bliss">
+                        <img loading="lazy" src="img/Handcrafted_lavender_soap_bar.jpg" alt="Lavender Bliss">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -657,7 +663,7 @@
                 <!-- Product 2 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Handmade_honey_oat_soap_bar.jpg" alt="Honey & Oat">
+                        <img loading="lazy" src="img/Handmade_honey_oat_soap_bar.jpg" alt="Honey & Oat">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -687,7 +693,7 @@
                 <!-- Product 3 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Activated_charcoal_soap_bar.jpg" alt="Charcoal Detox">
+                        <img loading="lazy" src="img/Activated_charcoal_soap_bar.jpg" alt="Charcoal Detox">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -715,7 +721,7 @@
                 <!-- Product 4 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Peppermint_essential_oil_soap.jpg" alt="Peppermint Burst">
+                        <img loading="lazy" src="img/Peppermint_essential_oil_soap.jpg" alt="Peppermint Burst">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -744,7 +750,7 @@
                 <!-- Product 5 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Rose-infused_soap_with_petals.jpg" alt="Rose Garden">
+                        <img loading="lazy" src="img/Rose-infused_soap_with_petals.jpg" alt="Rose Garden">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -773,7 +779,7 @@
                 <!-- Product 6 -->
                 <div class="product-card reveal">
                     <div class="product-image">
-                        <img src="img/Coconut_milk_soap_cracked_coconut.jpg" alt="Coconut Milk">
+                        <img loading="lazy" src="img/Coconut_milk_soap_cracked_coconut.jpg" alt="Coconut Milk">
                         <div class="eye-icon" onclick="openModal(this)">
                             <i class="far fa-eye"></i>
                         </div>
@@ -817,7 +823,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Shampoo_bottle_with_aloe_vera.jpg" alt="Aloe Vera Shine">
+                                    <img loading="lazy" src="img/Shampoo_bottle_with_aloe_vera.jpg" alt="Aloe Vera Shine">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -846,7 +852,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Luxury_shampoo_bottle_neem_leaves.jpg" alt="Neem & Tea Tree">
+                                    <img loading="lazy" src="img/Luxury_shampoo_bottle_neem_leaves.jpg" alt="Neem & Tea Tree">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -875,7 +881,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Shampoo_bottle_with_hibiscus.jpg" alt="Hibiscus Revival">
+                                    <img loading="lazy" src="img/Shampoo_bottle_with_hibiscus.jpg" alt="Hibiscus Revival">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -904,7 +910,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Shampoo_bottle_with_argan_nuts.jpg" alt="Argan Nourish">
+                                    <img loading="lazy" src="img/Shampoo_bottle_with_argan_nuts.jpg" alt="Argan Nourish">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -933,7 +939,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Ayurvedic_shampoo_with_bhringraj.jpg" alt="Bhringraj Boost">
+                                    <img loading="lazy" src="img/Ayurvedic_shampoo_with_bhringraj.jpg" alt="Bhringraj Boost">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -962,7 +968,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Luxury_shampoo_bottle_with_red.jpg" alt="Onion & Black Seed">
+                                    <img loading="lazy" src="img/Luxury_shampoo_bottle_with_red.jpg" alt="Onion & Black Seed">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -991,7 +997,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Shampoo_bottle_with_green_tea.jpg" alt="Green Tea Fresh">
+                                    <img loading="lazy" src="img/Shampoo_bottle_with_green_tea.jpg" alt="Green Tea Fresh">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1020,7 +1026,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Ayurvedic_shampoo_amla_shikakai.jpg" alt="Amla & Shikakai">
+                                    <img loading="lazy" src="img/Ayurvedic_shampoo_amla_shikakai.jpg" alt="Amla & Shikakai">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1066,7 +1072,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Face_cream_jar_turmeric_powder.jpg" alt="Turmeric Glow">
+                                    <img loading="lazy" src="img/Face_cream_jar_turmeric_powder.jpg" alt="Turmeric Glow">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1095,7 +1101,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Face_cream_jar_saffron_sandalwood.jpg" alt="Saffron & Sandalwood">
+                                    <img loading="lazy" src="img/Face_cream_jar_saffron_sandalwood.jpg" alt="Saffron & Sandalwood">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1124,7 +1130,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Face_cream_jar_aloe_vera.jpg" alt="Aloe Vera Hydra">
+                                    <img loading="lazy" src="img/Face_cream_jar_aloe_vera.jpg" alt="Aloe Vera Hydra">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1153,7 +1159,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Night_cream_jar_rose_petals.jpg" alt="Rose Petal Night">
+                                    <img loading="lazy" src="img/Night_cream_jar_rose_petals.jpg" alt="Rose Petal Night">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1182,7 +1188,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Vitamin_C_face_cream_oranges.jpg" alt="Vitamin C Radiance">
+                                    <img loading="lazy" src="img/Vitamin_C_face_cream_oranges.jpg" alt="Vitamin C Radiance">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1211,7 +1217,7 @@
                         <li class="splide__slide">
                             <div class="product-card">
                                 <div class="product-image">
-                                    <img src="img/Face_cream_jar_charcoal_powder.jpg" alt="Charcoal Mattifying">
+                                    <img loading="lazy" src="img/Face_cream_jar_charcoal_powder.jpg" alt="Charcoal Mattifying">
                                     <div class="eye-icon" onclick="openModal(this)"><i class="far fa-eye"></i></div>
 									<div class="modal-content">
 										<p class="modal-info">
@@ -1326,7 +1332,7 @@
 				</div>
 
 				<div class="comparison-image">
-					<img src="img/Handmade_soap.jpg"
+					<img loading="lazy" src="img/Handmade_soap.jpg"
 						 alt="Natural handmade soap with essential oils, herbs, and organic ingredients">
 				</div>
 			</div>
@@ -1570,12 +1576,13 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 20px; color: #fff;">
+                <div class="footer-col" style="text-align: center;">
+                    <div class="logo" style="margin-bottom: 20px; color: #fff; justify-content: center;">
                         <i class="fas fa-leaf"></i> Herbal Haven
                     </div>
                     <p>Natural skincare handmade with love. Dedicated to sustainability and your well-being.</p>
                 </div>
+				<!--
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
@@ -1602,9 +1609,10 @@
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
+				-->
             </div>
-            <div class="copyright" id="copyrightYear">
-                &copy; 2023 Herbal Haven Soaps. All Rights Reserved.
+            <div class="copyright">
+                &copy; <span id="copyrightYear">2023</span> Herbal Haven Soaps. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -2115,7 +2123,7 @@
             
             // Dynamic Year
             document.getElementById('copyrightYear').innerText = 
-                `© ${new Date().getFullYear()} Herbal Haven Soaps. All Rights Reserved.`;
+                `${new Date().getFullYear()}`;
         });
 		
 		
@@ -2153,7 +2161,7 @@
                 arrows: true,
                 autoplay: true,
                 interval: 4500,
-                pauseOnHover: true,
+                pauseOnHover: true,			
                 breakpoints: {
                     1024: { perPage: 3, gap: '16px' },
                     768:  { perPage: 2, gap: '12px' },
@@ -2217,6 +2225,7 @@
 			e.preventDefault();
 		  }
 		});
+		
 		
 		
 
